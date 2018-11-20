@@ -37,6 +37,5 @@ func _physics_process(delta):
 		var new_bg = raw_bg_inst.instance()
 		new_bg.offset.x = tip_x
 		get_parent().add_child(new_bg)
-		print(get_parent().get_child_count())
 		
 	pass

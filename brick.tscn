@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[node name="brick" type="StaticBody2D" index="0"]
+[node name="brick" type="StaticBody2D"]
 
 modulate = Color( 0.804688, 0.333191, 0.333191, 1 )
 position = Vector2( 0, 500 )

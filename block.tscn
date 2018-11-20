@@ -1,13 +1,18 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://block.gd" type="Script" id=1]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Polygon2D" type="Polygon2D" parent="." index="0"]
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="shape" type="Polygon2D" parent="." index="0"]
 
 scale = Vector2( 0.054054, 0.210526 )
 polygon = PoolVector2Array( 0, 0, 740, 0, 740, 190, 0, 190 )
 uv = PoolVector2Array(  )
-color = Color( 1, 1, 1, 1 )
+color = Color( 0.863281, 0.24509, 0.0303497, 1 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
@@ -17,8 +22,9 @@ texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
+_sections_unfolded = [ "Texture", "Transform" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
+[node name="static_body" type="StaticBody2D" parent="." index="1"]
 
 position = Vector2( 20, 20 )
 scale = Vector2( 0.625, 0.625 )
@@ -30,7 +36,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+[node name="collision" type="CollisionPolygon2D" parent="static_body" index="0"]
 
 position = Vector2( -20, -20 )
 scale = Vector2( 0.152027, 0.220395 )

@@ -265,29 +265,23 @@ _sections_unfolded = [ "Playback Options" ]
 
 [node name="back_tire" type="Sprite" parent="." index="1"]
 
-position = Vector2( -20, 50 )
-rotation = -0.0174533
+position = Vector2( 30, 55 )
 scale = Vector2( 0.999911, 1.00021 )
 texture = ExtResource( 3 )
-flip_h = true
 _sections_unfolded = [ "Animation", "Offset", "Transform" ]
 
 [node name="body" type="Sprite" parent="." index="2"]
 
 position = Vector2( 0, -0.163628 )
-rotation = -0.0174533
 scale = Vector2( 0.999911, 1.00021 )
 texture = ExtResource( 4 )
-flip_h = true
 _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="front_tire" type="Sprite" parent="." index="3"]
 
-position = Vector2( 30, 50 )
-rotation = -0.0174533
+position = Vector2( -30, 58 )
 scale = Vector2( 0.999911, 1.00021 )
 texture = ExtResource( 3 )
-flip_h = true
 _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
 [node name="car_collision" type="CollisionShape2D" parent="." index="4"]
@@ -295,6 +289,6 @@ _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 position = Vector2( 0.846954, -1.36315 )
 scale = Vector2( 10.3456, 6.7447 )
 shape = SubResource( 3 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 

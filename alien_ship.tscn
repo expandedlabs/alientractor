@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 3.40156, 6.0304 )
+extents = Vector2( 2.83206, 4.32825 )
 
 [sub_resource type="Animation" id=2]
 
@@ -64,7 +64,7 @@ script = ExtResource( 1 )
 rotation = 0.00872625
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform", "Z Index" ]
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 

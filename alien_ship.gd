@@ -8,12 +8,20 @@ const CAP_SPEED = 500
 const MOVE_SPEED = CAP_SPEED
 
 var velocity = Vector2()
+var is_dead = false
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	$anim.play("flying")
+	is_dead = false
 	pass
+	
+func _check_if_dead():
+	if position.x < - $Sprite.texture.get_size().x:
+		print("alienship dead")
+		return true
+	return false
 	
 func _handle_movement():
 	if Input.is_action_pressed("up"):
@@ -37,6 +45,7 @@ func _handle_movement():
 func _physics_process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
-	if get_node("/root/main_scn_root").is_alien:
+	
+	if not _check_if_dead() and get_node("/root/main_scn_root").is_alien:
 		_handle_movement()
 	pass
