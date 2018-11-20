@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://raw_bg.tscn" type="PackedScene" id=1]
+
+[node name="poly_sky" type="Node"]
+
+_sections_unfolded = [ "Pause" ]
+
+[node name="bg" parent="." index="0" instance=ExtResource( 1 )]
+
+region_rect = Rect2( 0, 0, 2100, 1080 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+
+

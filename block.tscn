@@ -1,0 +1,40 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="0"]
+
+scale = Vector2( 0.054054, 0.210526 )
+polygon = PoolVector2Array( 0, 0, 740, 0, 740, 190, 0, 190 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
+
+position = Vector2( 20, 20 )
+scale = Vector2( 0.625, 0.625 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+
+position = Vector2( -20, -20 )
+scale = Vector2( 0.152027, 0.220395 )
+build_mode = 0
+polygon = PoolVector2Array( 342.044, -54.4478, 342.044, 235.94, -78.9333, 235.94, -78.9333, -54.4478 )
+
+
