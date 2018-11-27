@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 2.83206, 4.32825 )
+extents = Vector2( 2.83206, 5.08476 )
 
 [sub_resource type="Animation" id=2]
 
@@ -51,7 +51,7 @@ tracks/2/keys = {
 "values": [ 1.0, 0.0, -1.0, 0.0, 1.0 ]
 }
 
-[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
+[node name="KinematicBody2D" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -68,7 +68,7 @@ _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Tr
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0.154701, 6.59446 )
+position = Vector2( 0.154636, -3.40554 )
 rotation = 0.00872625
 scale = Vector2( 27.1312, 16.7713 )
 shape = SubResource( 1 )

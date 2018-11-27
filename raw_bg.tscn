@@ -3,7 +3,7 @@
 [ext_resource path="res://raw/background.png" type="Texture" id=1]
 [ext_resource path="res://raw_bg.gd" type="Script" id=2]
 
-[node name="Sprite" type="Sprite" index="0"]
+[node name="Sprite" type="Sprite"]
 
 texture = ExtResource( 1 )
 centered = false

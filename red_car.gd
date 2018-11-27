@@ -18,8 +18,7 @@ func _ready():
 	pass
 	
 func _check_if_dead():
-	if position.x < -$body.texture.get_size().x:
-		print("redcar dead")
+	if position.x < -$body.texture.get_size().x /2:
 		return true
 	return false
 	

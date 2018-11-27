@@ -5,6 +5,7 @@ extends Node2D
 # var b = "textvar"
 
 var width
+signal block_disappear
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -17,8 +18,9 @@ func _physics_process(delta):
 	# Update game logic here.
 	if position.x < -width:
 		get_parent().remove_child(self)
+		emit_signal("block_disappear")
 		return
 	
 	# Get game speed
-	position.x -= get_node("/root/main_scn_root").get("move_speed") 
+	position.x -= get_node("/root/main_scn_root").move_speed
 	pass

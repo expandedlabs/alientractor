@@ -18,8 +18,7 @@ func _ready():
 	pass
 	
 func _check_if_dead():
-	if position.x < - $Sprite.texture.get_size().x:
-		print("alienship dead")
+	if position.x < - $Sprite.texture.get_size().x /2:
 		return true
 	return false
 	
@@ -39,13 +38,17 @@ func _handle_movement():
 	if velocity.y <= -CAP_SPEED:
 		velocity.y = -CAP_SPEED
 		
-	move_and_slide(velocity, Vector2(0, -1), 5, 20)
+	
 	pass
 
 func _physics_process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
 	
-	if not _check_if_dead() and get_node("/root/main_scn_root").is_alien:
-		_handle_movement()
+	if not _check_if_dead():
+		
+		if get_node("/root/main_scn_root").is_alien:
+			_handle_movement()
+			
+		move_and_slide(velocity, Vector2(0, -1), 5, 20)
 	pass
