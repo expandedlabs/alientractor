@@ -13,6 +13,10 @@ func _ready():
 	width = $shape.polygon[1].x
 	pass
 
+func _restart():
+	get_parent().remove_child(self)
+	pass
+
 func _physics_process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.

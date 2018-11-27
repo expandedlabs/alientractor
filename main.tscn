@@ -1,28 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://brick.tscn" type="PackedScene" id=3]
 [ext_resource path="res://red_car.tscn" type="PackedScene" id=4]
 [ext_resource path="res://alien_ship.tscn" type="PackedScene" id=5]
+[ext_resource path="res://dynamic_font.tres" type="DynamicFont" id=6]
 
-[sub_resource type="DynamicFontData" id=1]
-
-hinting = 2
-font_path = "res://raw/fonts/Kenney High Square.ttf"
-_sections_unfolded = [ "Resource" ]
-
-[sub_resource type="DynamicFont" id=2]
-
-size = 72
-use_mipmaps = false
-use_filter = true
-font_data = SubResource( 1 )
-_sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Settings" ]
-
-[node name="main_scn_root" type="Node" index="0" groups=[
-"main_scene_group",
-]]
+[node name="main_scn_root" type="Node" index="0"]
 
 script = ExtResource( 1 )
 incr_speed = 0.9
@@ -32,7 +17,7 @@ incr_speed = 0.9
 process_mode = 1
 wait_time = 1.0
 one_shot = false
-autostart = true
+autostart = false
 _sections_unfolded = [ "Pause" ]
 
 [node name="poly_sky" parent="." index="1" instance=ExtResource( 2 )]
@@ -42,12 +27,16 @@ _sections_unfolded = [ "Pause" ]
 modulate = Color( 0.507813, 0.495911, 0.495911, 1 )
 self_modulate = Color( 0.707031, 0.320374, 0.320374, 1 )
 
-[node name="red_car" parent="." index="3" instance=ExtResource( 4 )]
+[node name="red_car" parent="." index="3" groups=[
+"main_scene_group",
+] instance=ExtResource( 4 )]
 
 position = Vector2( 141.357, 664.228 )
 rotation = 3.14159
 
-[node name="alien_ship" parent="." index="4" instance=ExtResource( 5 )]
+[node name="alien_ship" parent="." index="4" groups=[
+"main_scene_group",
+] instance=ExtResource( 5 )]
 
 position = Vector2( 150, 270 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
@@ -75,7 +64,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
 text = "Score: 0 "

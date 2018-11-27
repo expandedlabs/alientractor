@@ -10,11 +10,17 @@ const GRAVITY = -JUMP_CUT_OFF * 2
 var anim = "backward"
 var jumping = false
 var velocity = Vector2()
-var is_dead
+onready var is_dead = false
+onready var origin_position = position
 
 func _ready():
 	$anim.play(anim)
+	pass
+	
+func _restart():
 	is_dead = false
+	velocity = Vector2()
+	position = origin_position
 	pass
 	
 func _check_if_dead():

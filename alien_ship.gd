@@ -9,6 +9,7 @@ const MOVE_SPEED = CAP_SPEED
 
 var velocity = Vector2()
 var is_dead = false
+onready var origin_position = position
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -17,8 +18,15 @@ func _ready():
 	is_dead = false
 	pass
 	
+func _restart():
+	is_dead = false
+	velocity = Vector2()
+	position = origin_position
+	pass
+	
 func _check_if_dead():
-	if position.x < - $Sprite.texture.get_size().x /2:
+	var texture_buffer = 50
+	if position.x < - $Sprite.texture.get_size().x /2 - texture_buffer:
 		return true
 	return false
 	
