@@ -46,9 +46,12 @@ func _restart_main():
 	get_tree().call_group("main_scene_group", "_restart")
 	is_alien = true
 	playing = true
+	
 	score = 0
 	faster_spawnrate = 0
 	move_speed = 1
+	chance_spawn_percent = 50
+	
 	get_parent().remove_child(current_menu)
 	showing_menu = false	
 	$score_label.set_text(str("Score: ", 0))
