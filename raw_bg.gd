@@ -7,7 +7,7 @@ extends Sprite
 var project_width = ProjectSettings.get_setting("display/window/size/width")
 
 var has_neighbor = false
-var raw_bg_inst = preload("res://raw_bg.tscn")
+var background_inst = preload("res://raw_bg.tscn")
 var texture_width
 
 func _ready():
@@ -34,7 +34,7 @@ func _physics_process(delta):
 	# has_neighbor designates only one bg to spawn
 	if tip_x <= project_width and not has_neighbor:
 		has_neighbor = true
-		var new_bg = raw_bg_inst.instance()
+		var new_bg = background_inst.instance()
 		new_bg.offset.x = tip_x
 		get_parent().add_child(new_bg)
 		

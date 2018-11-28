@@ -1,30 +1,65 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://block.gd" type="Script" id=1]
+[ext_resource path="res://raw/laserPink_burst.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "pulse"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.214439, 0.211772 ), Vector2( 0.25, 0.25 ), Vector2( 0.214439, 0.211772 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 50.0, 90.0, 0.0 ]
+}
 
 [node name="Node2D" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
-[node name="shape" type="Polygon2D" parent="." index="0"]
+[node name="anim" type="AnimationPlayer" parent="." index="0"]
 
-scale = Vector2( 0.054054, 0.210526 )
-polygon = PoolVector2Array( 0, 0, 740, 0, 740, 190, 0, 190 )
-uv = PoolVector2Array(  )
-color = Color( 0.863281, 0.24509, 0.0303497, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
-_sections_unfolded = [ "Texture", "Transform" ]
+root_node = NodePath("..")
+autoplay = "pulse"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/pulse = SubResource( 1 )
+blend_times = [  ]
+_sections_unfolded = [ "Pause", "Playback Options" ]
 
-[node name="static_body" type="StaticBody2D" parent="." index="1"]
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 22.3992, 22.1357 )
+rotation = 0.238564
+scale = Vector2( 0.220272, 0.218042 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
+
+[node name="static_body" type="StaticBody2D" parent="." index="2"]
 
 position = Vector2( 20, 20 )
 scale = Vector2( 0.625, 0.625 )
