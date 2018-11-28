@@ -15,6 +15,6 @@ It's a Tractor! It's an Alien! It's black mold everywhere! Zip through your way 
 Made using Godot, Kenney.nl (asset jesus), dl-sounds and people who inspire.
 
 # Shoutout
-Kenney.nl
-Godot
-Defense Line by Backgroundloop (https://www.dl-sounds.com/royalty-free/defense-line/)
+* Kenney.nl
+* Godot
+* Defense Line by Backgroundloop (https://www.dl-sounds.com/royalty-free/defense-line/)
