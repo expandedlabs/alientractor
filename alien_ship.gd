@@ -33,9 +33,11 @@ func _check_if_dead():
 func _handle_movement():
 	if Input.is_action_pressed("up"):
 		velocity.y -= MOVE_SPEED
+		$audio.play()
 	
 	if Input.is_action_pressed("down"):
 		velocity.y += MOVE_SPEED
+		$audio.play()
 		
 	if Input.is_action_just_released("up") or Input.is_action_just_released("down"):
 		velocity.y /= 8

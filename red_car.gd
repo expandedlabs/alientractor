@@ -35,9 +35,11 @@ func _handle_movement(delta):
 		velocity.y = JUMP_CUT_OFF
 		jumping=true
 		
+		
 	# Prevent double jumping 
 	if velocity.y <= 0 and is_on_ceiling(): 
 		jumping = false
+		$audio.play()
 		
 	# Cap velocity
 	if velocity.y <= -JUMP_CUT_OFF:

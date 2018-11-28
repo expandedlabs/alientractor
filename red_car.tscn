@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://red_car.gd" type="Script" id=1]
 [ext_resource path="res://red_car.tres" type="Animation" id=2]
 [ext_resource path="res://raw/robot/PNG/Side view/tracks_long1.png" type="Texture" id=3]
 [ext_resource path="res://raw/robot/PNG/Side view/robot_redBody.png" type="Texture" id=4]
+[ext_resource path="res://raw/phaseJump1.ogg" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 
@@ -290,5 +291,17 @@ position = Vector2( 0.846954, -1.36315 )
 scale = Vector2( 10.3456, 6.7447 )
 shape = SubResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="audio" type="AudioStreamPlayer2D" parent="." index="5"]
+
+position = Vector2( -98.4262, -73.8197 )
+stream = ExtResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 

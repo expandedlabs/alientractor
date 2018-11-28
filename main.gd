@@ -18,7 +18,7 @@ var arrow_anim = "down_up"
 var block_inst = preload("res://block.tscn")
 var menu_inst = preload("res://menu.tscn")
 var chance_spawn_percent = 50
-var valid_top_locations = [ 50, 230, 460 ]
+var valid_top_locations = [ 50, 230, 430 ]
 var valid_bot_locations = [ 600, 650, 800 ]
 
 # Score
@@ -139,4 +139,8 @@ func _process(delta):
 				
 	elif not showing_menu:
 		_show_menu()
+		
+	else:
+		if Input.is_action_just_pressed("flip"):
+				_restart_main()
 	pass
