@@ -22,9 +22,13 @@ use_filter = false
 font_data = SubResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="main_scn_root" type="Node" index="0"]
+[node name="main_scn_root" type="Node"]
 
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 547.765 ],
+"_edit_vertical_guides_": [ 483.373 ]
+}
 incr_speed = 0.9
 
 [node name="game_timer" type="Timer" parent="." index="0"]
@@ -53,7 +57,7 @@ _sections_unfolded = [ "Collision", "Material", "Transform", "Visibility", "Z In
 "main_scene_group",
 ] instance=ExtResource( 5 )]
 
-position = Vector2( 150, 800 )
+position = Vector2( 151.851, 800 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 
 [node name="floor_brick" parent="." index="5" instance=ExtResource( 3 )]
@@ -98,7 +102,9 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 
 [node name="arrow" parent="." index="8" instance=ExtResource( 7 )]
 
-position = Vector2( 400, 540 )
+position = Vector2( 388.712, 438.812 )
+rotation = -1.0472
+scale = Vector2( 1.1, 1.1 )
 
 [node name="audio" type="AudioStreamPlayer" parent="." index="9"]
 
@@ -121,6 +127,7 @@ margin_right = 1901.0
 margin_bottom = 79.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 1
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1

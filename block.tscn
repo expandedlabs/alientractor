@@ -10,7 +10,7 @@ length = 1.0
 loop = true
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:scale")
+tracks/0/path = NodePath("spike:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.214439, 0.211772 ), Vector2( 0.25, 0.25 ), Vector2( 0.214439, 0.211772 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/path = NodePath("spike:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -33,8 +33,32 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 0.0, 50.0, 90.0, 0.0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("spike2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 22.3992, 22.1357 ), Vector2( 22.3992, 22.1357 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("spike2:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 20.0, 100.0 ]
+}
 
-[node name="Node2D" type="Node2D"]
+[node name="block" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
@@ -50,16 +74,24 @@ anims/pulse = SubResource( 1 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause", "Playback Options" ]
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="spike2" type="Sprite" parent="." index="1"]
+
+position = Vector2( 22.3992, 22.1357 )
+rotation = 1.74533
+scale = Vector2( 0.220272, 0.218042 )
+texture = ExtResource( 2 )
+flip_h = true
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
+
+[node name="spike" type="Sprite" parent="." index="2"]
 
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 22.3992, 22.1357 )
-rotation = 0.238564
-scale = Vector2( 0.220272, 0.218042 )
+scale = Vector2( 0.214439, 0.211772 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
 
-[node name="static_body" type="StaticBody2D" parent="." index="2"]
+[node name="static_body" type="StaticBody2D" parent="." index="3"]
 
 position = Vector2( 20, 20 )
 scale = Vector2( 0.625, 0.625 )

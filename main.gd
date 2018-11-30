@@ -93,13 +93,13 @@ func rand_percent():
 func _spawn_blocks():	
 	var score_val = 1 if not $alien_ship._check_if_dead() else 0
 	if(rand_percent() > chance_spawn_percent):
-		_spawn_block(valid_top_locations, score_val)
+		_spawn_block(valid_top_locations, score_val, true)
 		
 	score_val = 1 if not $red_car._check_if_dead() else 0
 	if(rand_percent() > chance_spawn_percent):
-		_spawn_block(valid_bot_locations, score_val)
+		_spawn_block(valid_bot_locations, score_val, false)
 	
-func _spawn_block(possible_loc, score_val):	
+func _spawn_block(possible_loc, score_val, change_color):	
 	
 	# Spawn new block
 	var rand_loc = rand_percent()
@@ -113,6 +113,9 @@ func _spawn_block(possible_loc, score_val):
 		# Connect signal
 		new_block.connect("block_disappear", self, "_incr_score", [score_val])
 		new_block.add_to_group("main_scene_group")
+
+#		if change_color:
+#			new_block.get_node("spike").texture.col
 
 		print("Adding child: ", block)
 		get_parent().add_child(new_block)

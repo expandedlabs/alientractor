@@ -20,22 +20,22 @@ func _physics_process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
 	
-	if -(offset.x) > texture_width:
+	if -(position.x) > texture_width:
 		get_parent().remove_child(self)
 		return
 	
 	# Get game speed
-	offset.x -= get_node("/root/main_scn_root").get("move_speed") 
+	position.x -= get_node("/root/main_scn_root").get("move_speed") 
 	
-	# Find potential location of a new bg object
-	var tip_x = offset.x + texture_width
+	# Find position location of a new bg object
+	var tip_x = position.x + texture_width
 	
 	# Check if we need to add a new bg object next to this bg object
 	# has_neighbor designates only one bg to spawn
 	if tip_x <= project_width and not has_neighbor:
 		has_neighbor = true
 		var new_bg = background_inst.instance()
-		new_bg.offset.x = tip_x
+		new_bg.position.x = tip_x
 		get_parent().add_child(new_bg)
 		
 	pass
