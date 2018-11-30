@@ -4,10 +4,10 @@ extends KinematicBody2D
 # var a = 2
 # var b = "textvar"
 const JUMP_CUT_OFF = 1200
-const GRAVITY = -JUMP_CUT_OFF * 2
+const GRAVITY = JUMP_CUT_OFF * 2
 
 
-var anim = "backward"
+var anim = "forward"
 var jumping = false
 var velocity = Vector2()
 onready var is_dead = false
@@ -31,19 +31,19 @@ func _check_if_dead():
 func _handle_movement(delta):
 	
 	#Check for jump
-	if (Input.is_action_pressed("up") or Input.is_action_pressed("down")) and is_on_ceiling():
-		velocity.y = JUMP_CUT_OFF
+	if (Input.is_action_pressed("up") or Input.is_action_pressed("down")):
+		velocity.y = -JUMP_CUT_OFF / 2
 		jumping=true
 		
 		
 	# Prevent double jumping 
-	if velocity.y <= 0 and is_on_ceiling(): 
+	if velocity.y <= 0 and is_on_floor(): 
 		jumping = false
 		$audio.play()
 		
 	# Cap velocity
 	if velocity.y <= -JUMP_CUT_OFF:
-		velocity.y = -JUMP_CUT_OFF
+		velocity.y = 0
 		
 		
 	

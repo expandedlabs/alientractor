@@ -11,15 +11,19 @@ export var incr_speed = 0.1
 onready var faster_spawnrate = 0
 
 # Switch between alien/car
-var is_alien = true
-var arrow_anim = "down_up"
+var is_alien = false
+var arrow_anim = "up_down"
 
 # Block instance
 var block_inst = preload("res://block.tscn")
 var menu_inst = preload("res://menu.tscn")
 var chance_spawn_percent = 50
-var valid_top_locations = [ 50, 230, 430 ]
-var valid_bot_locations = [ 600, 650, 800 ]
+var valid_top_locations = [[ {"x":2000, "y":450}, {"x":2000, "y":400}, {"x":2000, "y":350} ],
+						   [ {"x":2000, "y":350}, {"x":2000, "y":300}, {"x":2000, "y":250} ],
+						   [ {"x":2000, "y":250}, {"x":2000, "y":200}, {"x":2000, "y":150} ]]
+var valid_bot_locations = [[ {"x":2000, "y":620}, {"x":2000, "y":680} ],
+						   [ {"x":2000, "y":1020}, {"x":2000, "y":970} ],
+						   [ {"x":2000, "y":850}, {"x":2000, "y":800} ]]
 
 # Score
 onready var score = 0
@@ -45,7 +49,7 @@ func _show_menu():
 	
 func _restart_main():
 	get_tree().call_group("main_scene_group", "_restart")
-	is_alien = true
+	is_alien = false
 	playing = true
 	
 	score = 0
@@ -96,20 +100,22 @@ func _spawn_blocks():
 		_spawn_block(valid_bot_locations, score_val)
 	
 func _spawn_block(possible_loc, score_val):	
-	var new_block = block_inst.instance()
 	
 	# Spawn new block
-	new_block.position.x = 2000
 	var rand_loc = rand_percent()
 	var index = randi() % possible_loc.size()
-	new_block.position.y = possible_loc[index]
+	print(possible_loc[index])
+	for block in possible_loc[index]:
+		var new_block = block_inst.instance()
+		new_block.position.x = block["x"]
+		new_block.position.y = block["y"]
 	
-	# Connect signal
-	
-	new_block.connect("block_disappear", self, "_incr_score", [score_val])
-	new_block.add_to_group("main_scene_group")
-				
-	get_parent().add_child(new_block)
+		# Connect signal
+		new_block.connect("block_disappear", self, "_incr_score", [score_val])
+		new_block.add_to_group("main_scene_group")
+
+		print("Adding child: ", block)
+		get_parent().add_child(new_block)
 	pass
 
 func _process(delta):
@@ -131,7 +137,7 @@ func _process(delta):
 				else:
 					is_alien = !is_alien
 				
-				new_anim = "down_up"  if is_alien  else "up_down"
+				new_anim = "up_down"  if is_alien  else "down_up"
 				if new_anim != arrow_anim:
 					arrow_anim = new_anim
 					$arrow.get_node("anim").play(arrow_anim)
@@ -144,3 +150,11 @@ func _process(delta):
 		if Input.is_action_just_pressed("flip"):
 				_restart_main()
 	pass
+
+
+func _on_toggle_music_toggled(button_pressed):
+	if button_pressed:
+		$audio.play()
+	else:
+		$audio.stop()
+	pass # replace with function body

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://background.tscn" type="PackedScene" id=2]
@@ -8,6 +8,19 @@
 [ext_resource path="res://dynamic_font.tres" type="DynamicFont" id=6]
 [ext_resource path="res://arrow.tscn" type="PackedScene" id=7]
 [ext_resource path="res://raw/defense_line.wav" type="AudioStream" id=8]
+
+[sub_resource type="DynamicFontData" id=1]
+
+hinting = 2
+font_path = "res://raw/fonts/Kenney High Square.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 72
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 1 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="main_scn_root" type="Node" index="0"]
 
@@ -33,23 +46,29 @@ self_modulate = Color( 0.707031, 0.320374, 0.320374, 1 )
 "main_scene_group",
 ] instance=ExtResource( 4 )]
 
-position = Vector2( 141.357, 664.228 )
-rotation = 3.14159
+position = Vector2( 141, 420 )
+_sections_unfolded = [ "Collision", "Material", "Transform", "Visibility", "Z Index", "collision" ]
 
 [node name="alien_ship" parent="." index="4" groups=[
 "main_scene_group",
 ] instance=ExtResource( 5 )]
 
-position = Vector2( 150, 270 )
+position = Vector2( 150, 800 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 
-[node name="roof_brick" parent="." index="5" instance=ExtResource( 3 )]
+[node name="floor_brick" parent="." index="5" instance=ExtResource( 3 )]
 
 visible = false
 modulate = Color( 0.976563, 0, 0, 1 )
-position = Vector2( -10.0701, -91.6192 )
+position = Vector2( -10.0701, 1060 )
 
-[node name="score_label" type="Label" parent="." index="6"]
+[node name="roof_brick" parent="." index="6" instance=ExtResource( 3 )]
+
+visible = false
+modulate = Color( 0.976563, 0, 0, 1 )
+position = Vector2( -10.0701, -90 )
+
+[node name="score_label" type="Label" parent="." index="7"]
 
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.0
@@ -77,11 +96,11 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="arrow" parent="." index="7" instance=ExtResource( 7 )]
+[node name="arrow" parent="." index="8" instance=ExtResource( 7 )]
 
-position = Vector2( 150, 540 )
+position = Vector2( 400, 540 )
 
-[node name="audio" type="AudioStreamPlayer" parent="." index="8"]
+[node name="audio" type="AudioStreamPlayer" parent="." index="9"]
 
 stream = ExtResource( 8 )
 volume_db = 0.0
@@ -89,5 +108,34 @@ pitch_scale = 1.0
 autoplay = true
 mix_target = 0
 bus = "Master"
+
+[node name="toggle_music" type="CheckBox" parent="." index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1747.0
+margin_top = 8.0
+margin_right = 1901.0
+margin_bottom = 79.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+toggle_mode = true
+pressed = true
+enabled_focus_mode = 1
+shortcut = null
+group = null
+text = "MUSIC"
+flat = false
+align = 0
+_sections_unfolded = [ "Focus", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_fonts" ]
+
+[connection signal="toggled" from="toggle_music" to="." method="_on_toggle_music_toggled"]
 
 
