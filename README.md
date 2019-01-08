@@ -1,5 +1,5 @@
 # alientractor
-Github Game Jam 2018
+[Github Game Jam 2018](https://itch.io/jam/game-off-2018/rate/335983)
 
 ## Description
 
