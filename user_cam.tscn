@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[node name="user_cam" type="Camera2D" index="0"]
+[node name="user_cam" type="Camera2D"]
 
 scale = Vector2( 6.47292, 6.7447 )
 anchor_mode = 0

@@ -15,8 +15,8 @@ var is_alien = false
 var arrow_anim = "up_down"
 
 # Block instance
-var block_inst = preload("res://block.tscn")
-var menu_inst = preload("res://menu.tscn")
+var block_inst = preload("res://mold/mold.tscn")
+var menu_inst = preload("res://menu/menu.tscn")
 var chance_spawn_percent = 50
 var valid_top_locations = [[ {"x":2000, "y":450}, {"x":2000, "y":400}, {"x":2000, "y":350} ],
 						   [ {"x":2000, "y":350}, {"x":2000, "y":300}, {"x":2000, "y":250} ],

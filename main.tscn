@@ -1,18 +1,18 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
-[ext_resource path="res://background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://brick.tscn" type="PackedScene" id=3]
-[ext_resource path="res://red_car.tscn" type="PackedScene" id=4]
-[ext_resource path="res://alien_ship.tscn" type="PackedScene" id=5]
-[ext_resource path="res://dynamic_font.tres" type="DynamicFont" id=6]
-[ext_resource path="res://arrow.tscn" type="PackedScene" id=7]
-[ext_resource path="res://raw/defense_line.wav" type="AudioStream" id=8]
+[ext_resource path="res://background/background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://separator.tscn" type="PackedScene" id=3]
+[ext_resource path="res://red_car/red_car.tscn" type="PackedScene" id=4]
+[ext_resource path="res://alien/alien_ship.tscn" type="PackedScene" id=5]
+[ext_resource path="res://common/dynamic_font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://arrow/arrow.tscn" type="PackedScene" id=7]
+[ext_resource path="res://background/defense_line.wav" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFontData" id=1]
 
 hinting = 2
-font_path = "res://raw/fonts/Kenney High Square.ttf"
+font_path = "res://common/fonts/Kenney High Square.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 
@@ -22,7 +22,7 @@ use_filter = false
 font_data = SubResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="main_scn_root" type="Node"]
+[node name="main_scn_root" type="Node" index="0"]
 
 script = ExtResource( 1 )
 __meta__ = {
