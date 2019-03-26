@@ -15,6 +15,7 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	$anim.play("flying")
+	$audio.get_stream().set_loop(false);
 	is_dead = false
 	pass
 	

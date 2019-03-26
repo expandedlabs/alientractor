@@ -15,6 +15,7 @@ onready var origin_position = position
 
 func _ready():
 	$anim.play(anim)
+	$audio.get_stream().set_loop(false);
 	pass
 	
 func _restart():
@@ -40,6 +41,7 @@ func _handle_movement(delta):
 	if velocity.y <= 0 and is_on_floor(): 
 		jumping = false
 		$audio.play()
+		print("yes");
 		
 	# Cap velocity
 	if velocity.y <= -JUMP_CUT_OFF:
